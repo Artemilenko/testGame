@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import {
   View,
 } from 'react-native';
+import NetInfo from '@react-native-community/netinfo/';
 
 import {get} from './src/services/request';
 import {Loading} from './src/screens/loading/Loading';
@@ -15,10 +16,16 @@ const App = () => {
   const [state, setState] = useState(<Loading />);
 
   useEffect(() => {
-    get(endpoint)
-    .then(response => {
-      if (response.status === 200) {
-        setState(<Site />);
+    NetInfo.fetch().then(data => {
+      if (data.isConnected) {
+        get(endpoint)
+          .then(response => {
+            if (response.status === 200) {
+              setState(<Site />);
+            } else {
+              setState(<Game />);
+            }
+        });
       } else {
         setState(<Game />);
       }
