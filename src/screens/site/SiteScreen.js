@@ -4,7 +4,7 @@ import {WebView} from 'react-native-webview';
 
 import {urlSite} from "../../constants";
 
-export const Site = () => {
+export const SiteScreen = () => {
   return (
     <WebView
       style={{flex: 1}}
@@ -12,6 +12,10 @@ export const Site = () => {
       source={{uri: urlSite}}
       javaScriptEnabled={true}
       domStorageEnabled={true}
+      allowFileAccess={true}
+      allowUniversalAccessFromFileURLs={true}
+      allowingReadAccessToURL={true}
+      mixedContentMode={'always'}
     />
   );
 }
