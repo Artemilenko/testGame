@@ -11,7 +11,7 @@ import {LoadingScreen} from './src/screens/loading/LoadingScreen';
 import {SiteScreen} from './src/screens/site/SiteScreen';
 import {GameScreen} from './src/screens/game/GameScreen';
 
-import {endpoint, urlSite} from './src/constants';
+import {endpoint} from './src/constants';
 
 const App = () => {
   const [state, setState] = useState(<LoadingScreen />);
@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     NetInfo.fetch().then(data => {
       if (data.isConnected) {
-        getRequest(urlSite);
+        getRequest(endpoint);
       } else {
         setState(<GameScreen />);
       }

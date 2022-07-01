@@ -1,15 +1,14 @@
 import React from "react";
-import {View, Text} from "react-native";
 import {WebView} from 'react-native-webview';
 
-import {urlSite} from "../../constants";
+import {endpoint} from "../../constants";
 
 export const SiteScreen = () => {
   return (
     <WebView
       style={{flex: 1}}
       originWhitelist={['*']}
-      source={{uri: urlSite}}
+      source={{uri: endpoint}}
       javaScriptEnabled={true}
       domStorageEnabled={true}
       allowFileAccess={true}
