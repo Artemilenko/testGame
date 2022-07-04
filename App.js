@@ -4,7 +4,6 @@ import {
   View,
 } from 'react-native';
 import NetInfo from '@react-native-community/netinfo/';
-import axios from 'axios';
 
 import {get} from './src/services/services';
 import {endpoint} from './src/constants';
@@ -27,7 +26,8 @@ const App = () => {
           })
           .catch(function(error) {
             setState(<GameScreen />);
-          });
+
+          })
       } else {
         setState(<GameScreen />);
       }
