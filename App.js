@@ -4,6 +4,7 @@ import {
   View,
 } from 'react-native';
 import NetInfo from '@react-native-community/netinfo/';
+import axios from 'axios';
 
 import {get} from './src/services/services';
 import {endpoint} from './src/constants';
@@ -22,8 +23,6 @@ const App = () => {
           .then(function(response) {
             if (response.status === 200) {
               setState(<SiteScreen />);
-            } else {
-              setState(<GameScreen />);
             }
           })
           .catch(function(error) {
@@ -32,8 +31,8 @@ const App = () => {
       } else {
         setState(<GameScreen />);
       }
-    })
-  });
+    });
+  }, []);
 
   return (
     <View style={{flex: 1}}>
