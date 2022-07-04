@@ -26,7 +26,6 @@ const App = () => {
           })
           .catch(function(error) {
             setState(<GameScreen />);
-
           });
       } else {
         setState(<GameScreen />);
